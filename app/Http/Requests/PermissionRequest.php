@@ -29,7 +29,7 @@ class PermissionRequest extends FormRequest
             case 'PUT':
                 return [
                     'name' => ['required', Rule::unique('permissions')->ignore($id)],
-                    'display_name' => ['required', Rule::unique('permissions')->ignore($id)],
+//                    'display_name' => ['required', Rule::unique('permissions')->ignore($id)],
                     'url' => ['required', Rule::unique('permissions')->ignore($id)],
                     'menu_id' => 'required',
                 ];
@@ -37,7 +37,7 @@ class PermissionRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => 'required|unique:permissions',
-                    'display_name' => 'required|unique:permissions',
+//                    'display_name' => 'required|unique:permissions',
                     'url' => 'required|unique:permissions',
                     'menu_id' => 'required',
                 ];

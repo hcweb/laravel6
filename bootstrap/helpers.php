@@ -215,16 +215,15 @@ if (!function_exists('getAllSubMenuById')) {
     }
 }
 
-if (!function_exists('getPermissionName')) {
-    /**
-     * 
-     * @param null $route
-     * @return string|null
-     */
-    function getPermissionName($route=null){
-        if ($route != null && \Illuminate\Support\Str::contains($route,'.')){
-            $routeName=explode('.',request()->route()->getName());
-            return $routeName[0].'_'.$routeName[1];
+if (!function_exists('getPermissionNames')) {
+
+    function getPermissionNames($menu=null){
+        if (!is_null($menu)){
+            $array=[];
+            foreach ($menu as $v){
+                array_push($array,\Illuminate\Support\Str::replaceFirst('.','_',$v->route));
+            }
+            return $array;
         }
         return null;
     }

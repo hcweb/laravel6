@@ -144,7 +144,7 @@ class UserController extends BaseController
             if (auth()->user()->is_enabled != 1) {
                 return back()->withErrors('尊敬的' . auth()->user()->name . '您的账户目前处理禁用状态,请联系管理员开启！');
             }
-            return redirect()->route('backend.app');
+            return redirect()->route('backend.home');
         } else {
             return back()->withErrors("用户名或密码错误！");
         }

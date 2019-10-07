@@ -23,14 +23,14 @@
                         </li>
                     @else
 
-                        @can(\Illuminate\Support\Str::replaceFirst($v->route,'.','_'))
+{{--                        @can(\Illuminate\Support\Str::replaceFirst($v->route,'.','_'))--}}
                         <li class="">
                             <a href="{{$v->route != '' ? route($v->route) : route('backend.home')}}" class="">
                                 <i class="{{$v->icon_class}}"></i>
                                 <span>{{$v->title}}{{$v->route}}</span>
                             </a>
                         </li>
-                        @endcan
+{{--                        @endcan--}}
 
 
                     @endif

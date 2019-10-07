@@ -40,16 +40,23 @@
                                             class="badge {{$v->status === 1 ? 'badge-light-primary' : 'badge-light-warning'}}">{{$v->status === 1 ? '启用' : '禁用'}}</span>
                                     </td>
                                     <td class="table_tools">
+                                        @can('field_index')
                                         <a href="{{url('/admin/field?mid='.$v->id)}}"
                                            class="btn btn-outline-warning waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="ti-harddrives"></i> 字段管理</a>
-                                            <a href="{{route('mould.edit',$v->id)}}"
+                                        @endcan
+                                        @can('mould_edit')
+                                        <a href="{{route('mould.edit',$v->id)}}"
                                                class="btn btn-outline-primary waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                     class="fa fa-edit"></i> 编辑</a>
+                                        @endcan
+
+                                            @can('mould_destroy')
                                         <a href="javascript:;"
                                            onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                            class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                                 class="fa fa-trash"></i> 删除</a>
+                                                @endcan
                                     </td>
                                 </tr>
                             @endforeach

@@ -25,6 +25,7 @@
                             </div>
                         </form>
                     </div>
+                    @can('block_create')
                     <div class="col-lg-4">
                         <div class="text-lg-right mt-3 mt-lg-0">
                             <a href="{{route('block.create')}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
@@ -32,6 +33,7 @@
                                     class="mdi mdi-plus-circle mr-1"></i> 添加资料</a>
                         </div>
                     </div><!-- end col-->
+                        @endcan
                 </div>
                 <table class="table table-borderless mb-0">
                     <thead class="thead-light">
@@ -40,7 +42,9 @@
                         <th class="font-weight-medium">名称</th>
                         <th class="font-weight-medium">类型</th>
                         <th class="font-weight-medium">调用方式</th>
+                        @canany('block_edit','block_destroy')
                         <th class="font-weight-medium">操作</th>
+                        @endcanany
                     </tr>
                     </thead>
 
@@ -68,17 +72,22 @@
                                         echo "{!! block($v->id) !!}";
                                     @endphp
                                 </td>
+                                @canany('block_edit','block_destroy')
                                 <td class="text-right table_tools">
                                     @can('block_edit')
                                     <a href="{{url('admin/block/'.$v->id.'/edit')}}"
                                        class="btn btn-outline-primary waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                             class="fa fa-edit"></i> 编辑</a>
                                     @endcan
+
+                                    @can('block_destroy')
                                     <a href="javascript:;"
                                        onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                        class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                             class="fa fa-trash"></i> 删除</a>
+                                        @endcan
                                 </td>
+                                    @endcanany
                             </tr>
                         @endforeach
                     @endif

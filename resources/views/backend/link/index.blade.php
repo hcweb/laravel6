@@ -38,6 +38,7 @@
                                     </div>
                                 </form>
                             </div>
+                            @can('link_create')
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
                                     <a href="{{route('link.create')}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
@@ -45,6 +46,7 @@
                                             class="mdi mdi-plus-circle mr-1"></i> 添加列表</a>
                                 </div>
                             </div><!-- end col-->
+                                @endcan
                         </div>
                       <div class="table-responsive">
                           <table class="table table-borderless mb-0">
@@ -56,7 +58,9 @@
                                       <th>LOGO</th>
                                       <th>内容</th>
                                       <th>状态</th>
+                                      @canany('link_edit','link_destroy')
                                       <th>操作</th>
+                                      @endcanany
                                   </tr>
                               </thead>
                               <tbody>

@@ -19,7 +19,7 @@ class RoleController extends BaseController
      */
     public function index()
     {
-        $roles = Role::latest()->get();
+        $roles = Role::orderBy('id','asc')->get();
         return view('backend.role.index', compact('roles'));
     }
 

@@ -1,4 +1,9 @@
 @extends('backend.layout')
+@section('css')
+    <style>
+        .td_active{color: red;}
+    </style>
+    @endsection
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -29,19 +34,24 @@
                         <tbody>
                         @if (count($roles) > 0)
                             @foreach($roles as $v)
-                                <tr>
+                                <tr class="{{$v->name == 'admin' ? 'td_active' : ''}}">
                                     <td>{{$v->id}}</td>
                                     <td>{{$v->name}}</td>
                                     <td>{{$v->display_name}}</td>
                                     <td>{{$v->description}}</td>
                                     <td class="table_tools">
+
                                         <a href="{{route('role.edit',$v->id)}}"
                                            class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="fa fa-edit"></i> 编辑</a>
+
+                                        @if($v->name != 'admin')
                                         <a href="javascript:;"
                                            onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                            class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                                 class="fa fa-trash"></i> 删除</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                             @endforeach

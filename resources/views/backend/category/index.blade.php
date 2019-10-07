@@ -25,6 +25,7 @@
                             </div>
                         </form>
                     </div>
+                    @can('category_create')
                     <div class="col-lg-4">
                         <div class="text-lg-right mt-3 mt-lg-0">
                             <a href="{{route('category.create')}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
@@ -32,6 +33,7 @@
                                     class="mdi mdi-plus-circle mr-1"></i> 添加栏目</a>
                         </div>
                     </div><!-- end col-->
+                        @endcan
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless mb-0">
@@ -45,7 +47,9 @@
                             <th>所属类型</th>
                             <th>显示状态</th>
                             <th>字体颜色</th>
+                            @canany('content_create','category_edit','category_destroy')
                             <th>操作</th>
+                            @endcanany
                         </tr>
                         </thead>
                         <tbody>
@@ -88,18 +92,26 @@
                                                 class="badge {{$v->is_show === 1 ? 'badge-light-primary' : 'badge-light-warning'}}">{{$v->is_show === 1 ? '显示' : '隐藏'}}</span>
                                     </td>
                                     <td><i style="width:10px;height: 10px;display: inline-block;border-radius: 100px;background: {{$v->color}}"></i></td>
+                                    @canany('content_create','category_edit','category_destroy')
                                     <td class="table_tools">
+                                        @can('content_create')
                                         <a href="{{url('admin/category/'.$v->id.'/edit')}}"
                                            class="btn btn-outline-warning waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="fa fa-file"></i> 添加内容</a>
+                                        @endcan
+                                        @can('category_edit')
                                         <a href="{{url('admin/category/'.$v->id.'/edit')}}"
                                            class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="fa fa-edit"></i> 编辑</a>
+                                            @endcan
+                                            @can('category_destroy')
                                         <a href="javascript:;"
                                            onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                            class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                                 class="fa fa-trash"></i> 删除</a>
+                                                @endcan
                                     </td>
+                                        @endcanany
                                 </tr>
                             @endforeach
                         @else

@@ -30,7 +30,7 @@
                         <li class="">
                             <a href="{{$v->route != '' ? route($v->route) : route('backend.home')}}" class="">
                                 <i class="{{$v->icon_class}}"></i>
-                                <span>{{$v->title}}{{$v->route}}</span>
+                                <span>{{$v->title}}</span>
                             </a>
                         </li>
                         @endcan

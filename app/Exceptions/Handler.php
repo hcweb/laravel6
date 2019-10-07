@@ -23,7 +23,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontFlash = [
         'password',
-        'password_confirmation',
+        'password_confirmation'
     ];
 
     /**
@@ -46,6 +46,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception->getMessage() == "stream_filter_append(): mcrypt and mdecrypt stream filters have been deprecated"){
+           
+        };
         return parent::render($request, $exception);
     }
 }

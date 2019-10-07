@@ -1,0 +1,14 @@
+.jq-icon-warning{background: #f7b84b;}
+.jq-icon-error{background: #f1556c;}
+.jq-icon-info{background: #37cde6;}
+.jq-icon-success{background: #1abc9c;}
+.swal-button:focus{box-shadow: none;border: none;}
+.table td,
+.table th {vertical-align:middle;}
+.app-file-upload-btn .layui-upload-file{opacity: 0;display: none;}
+.font-weight-normal{font-weight: normal !important;}
+
+.app-system-img{width: 100px;position: relative;}
+.app-system-img img{width: 100% !important;height: auto;display: none;}
+.btn-hide{display: none;}
+.app-system-img i{position: absolute;width: 26px;height: 26px;background: #f1556c;color: #fff;border-radius: 100px;text-align: center;line-height: 22px;cursor: pointer;right: -15px;top: -15px;display: none;border: 3px solid #fff;font-size: 10px;}

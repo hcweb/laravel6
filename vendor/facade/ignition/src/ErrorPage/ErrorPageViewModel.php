@@ -112,13 +112,7 @@ class ErrorPageViewModel implements Arrayable
 
     public function jsonEncode($data): string
     {
-        $jsonOptions = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT;
-
-        if (version_compare(phpversion(), '7.2', '>=')) {
-            return json_encode($data, JSON_PARTIAL_OUTPUT_ON_ERROR | $jsonOptions);
-        }
-
-        return json_encode($data, JSON_PARTIAL_OUTPUT_ON_ERROR | $jsonOptions);
+        return json_encode($data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
     }
 
     public function getAssetContents(string $asset): string
@@ -153,7 +147,7 @@ class ErrorPageViewModel implements Arrayable
             'config' => $this->config(),
             'solutions' => $this->solutions(),
             'report' => $this->report(),
-            'housekeepingEndpoint' => url(config('ignition.housekeeping_endpoint_prefix', '_ignition')),
+            'housekeepingEndpoint' => config('ignition.housekeeping_endpoint_prefix', '_ignition'),
             'styles' => $this->styles(),
             'scripts' => $this->scripts(),
             'tabs' => $this->tabs(),

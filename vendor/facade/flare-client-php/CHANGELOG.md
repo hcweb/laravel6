@@ -2,10 +2,6 @@
 
 All notable changes to `flare-client-php` will be documented in this file
 
-## 1.0.4 - 2019-09-11
-
-- Fixes an issue when sending exceptions inside a queue worker
-
 ## 1.0.3 - 2019-09-05
 
 - Ensure valid session data

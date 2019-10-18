@@ -158,6 +158,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin','middleware'=>'auth.
             //意见建议
             Route::resource('message','MessageController')->only('index','edit','update','destroy');
 
+
+            //商家管理
+            Route::resource('seller', 'SellerController');
+            //商家類別管理
+            Route::resource('sellertype', 'SellerTypeController');
+            Route::post('sellertype/order', 'SellerTypeController@order')->name('sellertype.order');
             //载入自定义的模型控制器
             include __DIR__.'/admin_route.php';
 
@@ -169,3 +175,7 @@ Route::group(['prefix' => 'file'], function () {
     Route::post('upload', 'Common\UploadController@upload')->name('file.upload');
     Route::post('remove', 'Common\UploadController@remove')->name('file.remove');
 });
+
+
+
+Route::get('student/index','StudentController@index');

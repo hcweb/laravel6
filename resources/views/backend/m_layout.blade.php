@@ -17,7 +17,9 @@
     @yield('css')
     <link href="{{asset('backend/assets/css/app.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/assets/css/style.css')}}" rel="stylesheet" type="text/css"/>
-
+    <style>
+        body{background: #ffffff;}
+    </style>
     <script>
         window.hbidea = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -29,7 +31,7 @@
 <body>
 
 <!-- Start Content-->
-<div class="container-fluid">
+<div class="container-fluid pl-0 pr-0">
     @yield('content')
 </div> <!-- container -->
 

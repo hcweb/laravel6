@@ -1,4 +1,4 @@
-<script src="{{asset('backend/plugins/DetectElementResize/detect-element-resize.js')}}"></script>
+<script src="{{asset('backend/assets/libs/DetectElementResize/detect-element-resize.js')}}"></script>
 <script>
     var resizeElement = document.body;
     addResizeListener(resizeElement, function () {

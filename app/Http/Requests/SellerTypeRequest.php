@@ -24,15 +24,18 @@ class SellerTypeRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->get('sellerTypeId');
         switch (request()->method()) {
             case 'PUT':
                 return [
                     'order_num' => 'numeric',
+                    'name' => ['required', Rule::unique('seller_type')->ignore($id)],
                 ];
                 break;
             case 'POST':
                 return [
                     'order_num' => 'numeric',
+                    'name'=>'required|unique:seller_type'
                 ];
                 break;
         }

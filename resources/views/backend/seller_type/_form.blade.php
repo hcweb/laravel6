@@ -7,6 +7,7 @@
             @if(isset($sellerType))
                 {!! Form::model($sellerType,['url'=>'admin/sellertype/'.$sellerType->id,'class'=>'form-horizontal']) !!}
                 {{method_field('PUT')}}
+                <input type="hidden" name="sellerTypeId" value="{{$sellerType->id}}">
             @else
                 {!! Form::open(['route'=>'sellertype.store','class'=>'form-horizontal']) !!}
             @endif

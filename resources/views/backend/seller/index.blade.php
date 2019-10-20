@@ -16,12 +16,14 @@
 
                         </form>
                     </div>
+                    @can('seller_create')
                     <div class="col-lg-4">
                         <div class="text-lg-right mt-3 mt-lg-0">
                             <a href="{{route('seller.create')}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
                                ><i class="mdi mdi-plus-circle mr-1"></i> 添加商家</a>
                         </div>
                     </div><!-- end col-->
+                        @endcan
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless mb-0">

@@ -47,7 +47,7 @@
                             <th>所属类型</th>
                             <th>显示状态</th>
                             <th>字体颜色</th>
-                            @canany('content_create','category_edit','category_destroy')
+                            @canany('category_edit','category_destroy','content_create')
                             <th>操作</th>
                             @endcanany
                         </tr>
@@ -92,13 +92,13 @@
                                                 class="badge {{$v->is_show === 1 ? 'badge-light-primary' : 'badge-light-warning'}}">{{$v->is_show === 1 ? '显示' : '隐藏'}}</span>
                                     </td>
                                     <td><i style="width:10px;height: 10px;display: inline-block;border-radius: 100px;background: {{$v->color}}"></i></td>
-                                    @canany('content_create','category_edit','category_destroy')
+                                    @canany('category_edit','category_destroy','content_create')
                                     <td class="table_tools">
-                                        @can('content_create')
+
                                         <a href="{{url('admin/category/'.$v->id.'/edit')}}"
                                            class="btn btn-outline-warning waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="fa fa-file"></i> 添加内容</a>
-                                        @endcan
+
                                         @can('category_edit')
                                         <a href="{{url('admin/category/'.$v->id.'/edit')}}"
                                            class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i

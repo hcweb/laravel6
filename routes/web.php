@@ -66,8 +66,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin','middleware'=>'auth.
 //            //留言管理
 //            Route::resource('guestbook', 'GuestBookController')->only('index','destroy');
 //        });
-
-        Route::middleware(['auth.permission','breadcrumb'])->group(function () {
+//        'breadcrumb'
+        Route::middleware(['auth.permission'])->group(function () {
             //权限管理
             Route::resource('permission', 'PermissionController');
             //角色管理
@@ -164,10 +164,11 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin','middleware'=>'auth.
             //商家類別管理
             Route::resource('sellertype', 'SellerTypeController');
             Route::post('sellertype/order', 'SellerTypeController@order')->name('sellertype.order');
-            //载入自定义的模型控制器
-            include __DIR__.'/admin_route.php';
+
 
         });
+        //载入自定义的模型控制器
+        include __DIR__.'/admin_route.php';
     });
 });
 Route::get('translate/{title}', 'Common\TranslateController@translate')->name('translate');

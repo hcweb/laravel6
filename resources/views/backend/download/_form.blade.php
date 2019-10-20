@@ -1,9 +1,3 @@
-@section('css')
-    <style>
-        .layui-form-select dl{z-index: 9999;}
-    </style>
-    <link rel="stylesheet" href="{{asset('backend/style/formSelects-v4.css')}}">
-@stop
 <div class="layui-card" style="margin-bottom: 0;">
         {{--<div class="layui-card-header">--}}
             {{--{{isset($f_data)?'修改':'添加'}}单页--}}
@@ -142,7 +136,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="layui-form-item">
                             <label class="layui-form-label">浏览次数</label>
                             <div class="layui-input-inline">

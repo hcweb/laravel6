@@ -16,12 +16,14 @@
 
                         </form>
                     </div>
+                    @can('sellertype_create')
                     <div class="col-lg-4">
                         <div class="text-lg-right mt-3 mt-lg-0">
                             <a href="{{route('sellertype.create')}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
                                ><i class="mdi mdi-plus-circle mr-1"></i> 添加商家行业</a>
                         </div>
                     </div><!-- end col-->
+                        @endcan
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless mb-0">
@@ -32,7 +34,9 @@
                             <th>名称</th>
                             <th>图标</th>
                             <th>显示状态</th>
+                            @canany('sellertype_edit','sellertype_destroy')
                             <th>操作</th>
+                                @endcanany
                         </tr>
                         </thead>
                         <tbody>

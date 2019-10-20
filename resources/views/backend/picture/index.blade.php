@@ -1,4 +1,4 @@
-@extends('backend.layout')
+@extends('backend.m_layout')
 @section('content')
 
         <div class="layui-card">

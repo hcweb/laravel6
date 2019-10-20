@@ -26,8 +26,10 @@ class ContentController extends BaseController
     public function index(){
         $categorys=Category::orderBy('order','DESC')->withDepth()->get()->toTree();
 
+
         $traverse = function ($categories) use (&$traverse) {
             foreach ($categories as $v) {
+                $v->text=$v->title;
                 //获取模型信息
                 $ctrName=Mould::select('ctr_name')->findOrFail($v->mould_id);
 

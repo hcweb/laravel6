@@ -39,7 +39,7 @@
             <div class="form-control-inline">
                 {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'value'=>'','class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
-            <a class="layui-btn" id="{{$f->name}}_{{$f->id}}_img_btn" data-id="{{$f->name.'_'.$f->id}}"><i class="fa fa-upload"></i>上传图片</a>
+            <a class="btn btn-secondary"  style="color: #ffffff;" id="{{$f->name}}_{{$f->id}}_img_btn" data-id="{{$f->name.'_'.$f->id}}"><i class="fa fa-upload"></i>上传图片</a>
             @break
             @case('imgs')
             <div class="layui-input-block">
@@ -70,9 +70,10 @@
             <div class="layui-input-block">
                 <a id="{{$f->name}}_{{$f->id}}_img_btn" class="layui-btn layui-btn-primary" data-id="{{$f->name}}_{{$f->id}}" data-name="{{$f->name}}"><i class="fa fa-plus-circle"></i>上传附件</a>
                 @if (!empty($f->tip_content))
-                    <button style="margin-left: 10px;" class="layui-btn layui-btn-primary app-tip-info" data-content="{{$f->tip_content}}" onmouseover="layer_tips = layer.tips(this.getAttribute('data-content'), this, {time:100000});" onmouseleave="layer.close(layer_tips);">
-                        <i class="fa fa-info-circle"></i>
-                    </button>
+{{--                    <button style="margin-left: 10px;" class="layui-btn layui-btn-primary app-tip-info" data-content="{{$f->tip_content}}" onmouseover="layer_tips = layer.tips(this.getAttribute('data-content'), this, {time:100000});" onmouseleave="layer.close(layer_tips);">--}}
+{{--                        <i class="fa fa-info-circle"></i>--}}
+{{--                    </button>--}}
+                    <small class="form-text text-muted mt-0" style="line-height: 2.2rem">{{$f->tip_content}}.</small>
                 @endif
                 <br>
                 <div class="imgs_box" id="{{$f->name}}_{{$f->id}}_imgb_box">
@@ -163,9 +164,10 @@
             @break
         @endswitch
         @if (!empty($f->tip_content) && $f->type != 'imgs' && $f->type != 'files')
-            <button style="margin-left: 10px;" class="layui-btn layui-btn-primary app-tip-info" data-content="{{$f->tip_content}}" onmouseover="layer_tips = layer.tips(this.getAttribute('data-content'), this, {time:100000});" onmouseleave="layer.close(layer_tips);">
-                <i class="fa fa-info-circle"></i>
-            </button>
+{{--            <button style="margin-left: 10px;" class="layui-btn layui-btn-primary app-tip-info" data-content="{{$f->tip_content}}" onmouseover="layer_tips = layer.tips(this.getAttribute('data-content'), this, {time:100000});" onmouseleave="layer.close(layer_tips);">--}}
+{{--                <i class="fa fa-info-circle"></i>--}}
+{{--            </button>--}}
+            <small class="form-text text-muted mt-0" style="line-height: 2.2rem">{{$f->tip_content}}.</small>
         @endif
     </div>
 @endforeach

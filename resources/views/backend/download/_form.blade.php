@@ -181,6 +181,7 @@
             placeholder:"可多选",//默认值
         });
         var upload = layui.upload;
+        var laydate = layui.laydate;
 
             $(".category-title").blur(function () {
                 if ($(this).val() != '') {

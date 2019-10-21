@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/medkd_resource
 /storage/*.key
 /vendor
 .env

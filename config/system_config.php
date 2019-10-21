@@ -3,7 +3,7 @@
   'site_logo' => '/medkd_resource/thumbs/201909//site_20190927164858.jpg',
   'site_ico' => '/medkd_resource/thumbs/201909//site_20190927164908.jpg',
   'site_url' => '医学电子图书、医学视频|医学课件|医学图片|医学考试题库|医学软件',
-  'site_title' => '锦茂数字图书馆（医学版）包含45000册中外文电子图书，10000个医学视频，10000个医学课件、10000个医学图片，上千套医学考试题库几医学精品软件',
+  'site_title' => '昆明趣味',
   'site_keywords' => '锦茂数字图书馆 医学版 © 2018',
   'site_description' => NULL,
   'site_copyright' => '44646',

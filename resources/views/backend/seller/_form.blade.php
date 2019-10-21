@@ -7,6 +7,7 @@
             @if(isset($seller))
                 {!! Form::model($seller,['url'=>'admin/seller/'.$seller->id,'class'=>'form-horizontal']) !!}
                 {{method_field('PUT')}}
+                <input type="hidden" name="sellerId" value="{{$seller->id}}">
             @else
                 {!! Form::open(['route'=>'seller.store','class'=>'form-horizontal']) !!}
 
@@ -21,7 +22,7 @@
                                 @if(isset($seller) && !is_null($seller->typeid))
                                     <option value="{{$v->id}}" {{$seller->typeid == $v->id ? 'selected' : ''}}>{{str_repeat('|',$v->depth*1)}}{{str_repeat('-',$v->depth*3)}}{{$v->name}}</option>
                                 @else
-                                    <option style="padding-left: {{$v->depth*3}}px" value="{{$v->id}}" {{isset($seller) && ($seller->typeid == $v->id) ? 'selected' : ''}}>{{str_repeat('|',$v->depth*1)}}{{str_repeat('-',$v->depth*3)}}{{$v->name}}</option>
+                                    <option style="padding-left: {{$v->depth*3}}px" value="{{$v->id}}" {{old('typeid') == $v->id ? 'selected' : ''}}>{{str_repeat('|',$v->depth*1)}}{{str_repeat('-',$v->depth*3)}}{{$v->name}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -51,6 +52,12 @@
                     <label  class="col-sm-1 col-form-label text-right">手机号</label>
                     <div class="col-sm-3">
                         {!! Form::input('text','telphone',old('telphone'),['class'=>'form-control','placeholder'=>'请输入手机号','autocomplete'=>'off']) !!}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-1 col-form-label text-right">微信号</label>
+                    <div class="col-sm-3">
+                        {!! Form::input('text','wx',old('wx'),['class'=>'form-control','placeholder'=>'请输入微信号','autocomplete'=>'off']) !!}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -97,6 +104,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label  class="col-sm-1 col-form-label text-right">有效期</label>
+                    <div class="col-sm-3">
+                        {!! Form::input('text','valid_time',old('valid_time'),['id'=>'valid_time','class'=>'form-control','autocomplete'=>'off']) !!}
+                    </div>
+                </div>
                 <div class="form-group row mt-4">
                     <label  class="col-sm-1 col-form-label text-right"></label>
                     <div class="col-sm-11">
@@ -141,6 +154,15 @@
                 //请求异常回调
                 layer.msg("上传失败！", {icon: 5});
             }
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //日期范围
+            laydate.render({
+                elem: '#valid_time'
+                , calendar: true
+            });
         });
     </script>
 @stop

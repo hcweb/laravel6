@@ -23,6 +23,7 @@
     <style>
         body{background: #ffffff;}
     </style>
+    <script src="{{asset('backend/assets/libs/sortable/Sortable.min.js')}}"></script>
     <script>
         window.hbidea = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -45,6 +46,7 @@
 <script src="{{asset('backend/assets/libs/jquery-toast/jquery.toast.min.js')}}"></script>
 <script src="{{asset('backend/assets/libs/sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/layui.all.js')}}"></script>
+
 <script>
 $(document).ready(function () {
 @if ($errors->any())

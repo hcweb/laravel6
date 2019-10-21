@@ -1,5 +1,6 @@
 @section('css')
     <link href="{{asset('backend/assets/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('backend/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @if(isset($f_data))
     {!! Form::model($f_data,['url'=>'admin/'.$mould_name.'/'.$f_data->id,'class'=>'form-horizontal']) !!}
@@ -158,10 +159,11 @@
     </div>
 {!! Form::close() !!}
 
-{{--@include('vendor.ueditor.assets')--}}
+@include('vendor.ueditor.assets')
 @section('script')
     <script src="{{asset('backend/assets/libs/select2/select2.min.js')}}"></script>
     <script src="{{asset('backend/plugins/BaiDuTranslate/md5.js')}}"></script>
+    <script src="{{asset('backend/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js')}}"></script>
     @include('backend.common._ifram')
     <!-- 实例化编辑器 -->
     {{--<script type="text/javascript">--}}
@@ -182,6 +184,14 @@
         });
         var upload = layui.upload;
         var laydate = layui.laydate;
+
+
+
+        laydate.render({
+            elem: '#datetime'
+            ,type: 'datetime'
+            ,value:new Date()
+        });
 
             $(".category-title").blur(function () {
                 if ($(this).val() != '') {

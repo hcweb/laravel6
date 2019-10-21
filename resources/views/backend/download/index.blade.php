@@ -50,7 +50,7 @@
                                     <td>{{$v->views}}</td>
                                     <td>{{$v->created_at}}</td>
                                     <td class="table_tools">
-                                        <a href="{{url('admin/menu/'.$v->id.'/edit')}}"
+                                        <a href="/admin/{{$mould_name}}/{{$v->id}}/edit?mid={{request('mid')}}&cid={{request('cid')}}"
                                            class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                                 class="fa fa-edit"></i> 编辑</a>
                                         <a href="javascript:;"

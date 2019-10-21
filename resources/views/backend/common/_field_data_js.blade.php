@@ -61,7 +61,7 @@
                         //上传完毕回调
                         if (res.success == true){
                             var html='<div class="imgs_item_box">'+
-                                '<i class="fa fa-close app-file-delete" data-path="'+res.data.path+'" data-id="'+$(this.item).data('id')+'" data-name="'+$(this.item).data('name')+'"></i>'+
+                                '<i class="ti-close app-file-delete" data-path="'+res.data.path+'" data-id="'+$(this.item).data('id')+'" data-name="'+$(this.item).data('name')+'"></i>'+
                                 '<img src="'+res.data.path+'" alt="">'+
                                 '<input type="hidden" value="'+res.data.path+'" name="'+$(this.item).data('name')+'[]">'+
                                 '</div>';
@@ -95,7 +95,7 @@
                         //上传完毕回调
                         if (res.success == true){
                             var html='<div class="imgs_item_box" style="border:none;width:auto;height: auto;padding:10px;">'+
-                                '<i class="fa fa-close app-file-delete" data-path="'+res.data.path+'" data-id="'+$(this.item).data('id')+'" data-name="'+$(this.item).data('name')+'"></i>'+
+                                '<i class="ti-close app-file-delete" data-path="'+res.data.path+'" data-id="'+$(this.item).data('id')+'" data-name="'+$(this.item).data('name')+'"></i>'+
                                 '<p><a href="javascript:;" data-src="'+res.data.path+'">'+res.data.name+'</a></p>'+
                                 '<input type="hidden" value="'+res.data.path+'" name="'+$(this.item).data('name')+'[]">'+
                                 '</div>';
@@ -121,17 +121,9 @@
                     }
                 });
                 break;
-            case 'color':
-                colorpicker.render({
-                    elem: '#'+mFields[i].name+'_'+mFields[i].id+'color' //绑定元素
-                    ,predefine:true
-                    ,color:$('#'+mFields[i].name+'_'+mFields[i].id).val()
-                    ,change: function(color){ //颜色改变的回调
-                        layer.tips('选择了：'+ color, this.elem, {
-                            tips: 1
-                        });
-                        $('#'+$(this.elem).data('id')).val(color);
-                    }
+              case 'color':
+              $('#'+mFields[i].name+'_'+mFields[i].id).colorpicker({
+                format:'hex'
                 });
                 break;
         }

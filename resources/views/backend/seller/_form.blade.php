@@ -156,13 +156,10 @@
             }
         });
 
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //日期范围
-            laydate.render({
-                elem: '#valid_time'
-                , calendar: true
-            });
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#valid_time'
+            , calendar: true
         });
     </script>
 @stop

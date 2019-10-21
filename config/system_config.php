@@ -3,11 +3,7 @@
   'site_logo' => '/medkd_resource/thumbs/201909//site_20190927164858.jpg',
   'site_ico' => '/medkd_resource/thumbs/201909//site_20190927164908.jpg',
   'site_url' => '医学电子图书、医学视频|医学课件|医学图片|医学考试题库|医学软件',
-<<<<<<< HEAD
-  'site_title' => 'kunmingzhiqu',
-=======
   'site_title' => '昆明趣味',
->>>>>>> 3200ef252ba8313b2f5b209220ea6a2fddf056cc
   'site_keywords' => '锦茂数字图书馆 医学版 © 2018',
   'site_description' => NULL,
   'site_copyright' => '44646',

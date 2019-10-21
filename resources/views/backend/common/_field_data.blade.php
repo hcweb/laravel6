@@ -1,6 +1,6 @@
 @foreach($fields as $f)
-    <div class="layui-form-item">
-        <label class="layui-form-label">
+    <div class="row form-group">
+        <label class="col-sm-2 text-right col-form-label">
             @if ($f->is_empty == 1)
                 <i style="color: red;margin-right: 10px;">*</i>
             @endif
@@ -8,27 +8,27 @@
         </label>
         @switch($f->type)
             @case('text')
-            <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['class'=>'layui-input','id'=>$f->name.'_'.$f->id,'lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty]) !!}
+            <div class="col-sm-4">
+                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['class'=>'form-control','id'=>$f->name.'_'.$f->id,'lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty]) !!}
             </div>
             @if (!empty($f->byte))
                 {{$f->byte}}
             @endif
             @break
             @case('multitext')
-            <div class="layui-input-blok">
-                <div class="layui-col-md4">
-                    {!! Form::textarea($f->name,old($f->name), ['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class' => 'layui-textarea','rows'=>3,'cols'=>60,'id'=>$f->name.'_'.$f->id]) !!}
+
+                <div class="col-sm-6">
+                    {!! Form::textarea($f->name,old($f->name), ['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class' => 'form-control','rows'=>3,'cols'=>60,'id'=>$f->name.'_'.$f->id]) !!}
                 </div>
-            </div>
+
             @break
             @case('datetime')
-            <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class'=>'layui-input','autocomplete'=>'off','id'=>$f->name.'_'.$f->id]) !!}
+            <div class="col-sm-4">
+                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class'=>'form-control','autocomplete'=>'off','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @break
             @case('htmltext')
-            <div class="layui-input-block">
+            <div class="col-sm-4">
                 <!-- 编辑器容器 -->
                 <script id="{{$f->name.'_'.$f->id}}" name="{{$f->name}}" value="{{$f->name}}" type="text/plain">
                     @if(isset($f_data)){!! $f_data[$f->name] !!}@endif
@@ -36,8 +36,8 @@
             </div>
             @break
             @case('img')
-            <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'value'=>'','class'=>'layui-input','id'=>$f->name.'_'.$f->id]) !!}
+            <div class="form-control-inline">
+                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'value'=>'','class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             <a class="layui-btn" id="{{$f->name}}_{{$f->id}}_img_btn" data-id="{{$f->name.'_'.$f->id}}"><i class="fa fa-upload"></i>上传图片</a>
             @break
@@ -130,8 +130,8 @@
             </div>
             @break;
             @case('int')
-            <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9]/g,'');","placeholder"=>"只允许纯数字",'class'=>'layui-input','id'=>$f->name.'_'.$f->id]) !!}
+            <div class="col-sm-4">
+                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9]/g,'');","placeholder"=>"只允许纯数字",'class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @if (!empty($f->byte))
                 {{$f->byte}}
@@ -139,7 +139,7 @@
             @break
             @case('float')
             <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的数值",'class'=>'layui-input','id'=>$f->name.'_'.$f->id]) !!}
+                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的数值",'class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @if (!empty($f->byte))
                 {{$f->byte}}
@@ -147,7 +147,7 @@
             @break
             @case('decimal')
             <div class="layui-input-inline">
-                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的金额",'class'=>'layui-input','id'=>$f->name.'_'.$f->id]) !!}
+                {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的金额",'class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @if (!empty($f->byte))
                 {{$f->byte}}
@@ -155,7 +155,7 @@
             @break
             @case('color')
             <div class="layui-input-inline" style="width: 120px;">
-                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class'=>'layui-input','placeholder'=>'请选择颜色','id'=>$f->name.'_'.$f->id]) !!}
+                {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class'=>'form-control','placeholder'=>'请选择颜色','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             <div class="layui-inline" style="left: -11px;margin-bottom: 0">
                 <div id="{{$f->name.'_'.$f->id.'color'}}" data-id="{{$f->name.'_'.$f->id}}"></div>

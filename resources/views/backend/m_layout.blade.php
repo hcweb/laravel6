@@ -18,6 +18,9 @@
     <link href="{{asset('backend/assets/css/app.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/assets/css/style.css')}}" rel="stylesheet" type="text/css"/>
     <style>
+        body.enlarged{min-height: auto !important;}
+    </style>
+    <style>
         body{background: #ffffff;}
     </style>
     <script>

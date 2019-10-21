@@ -18,7 +18,7 @@
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">
-                    <iframe src="" id="app-main-content" width='100%' height='100%' frameborder='0' scrolling="no" style="overflow: visible;"></iframe>
+                    <iframe src="" id="app-main-content" width='100%' height='100%' frameborder='0'  scrolling="no" style="overflow: visible;"></iframe>
                 </div>
                 <!-- end inbox-rightbar-->
 
@@ -97,6 +97,15 @@
             var iDoc = ifr.contentDocument || ifr.document;
             var height = calcPageHeight(iDoc);
             ifr.style.height = height + 'px';
+        }
+
+        function showTost(){
+            swal({
+                text: "123",
+                icon: "error",
+                timer: '2000',
+                button:false
+            });
         }
     </script>
 @stop

@@ -26,6 +26,7 @@ class DownloadController extends BaseController
         $subCate=Category::descendantsAndSelf(\request('cid'),['id']);
         $ids=$subCate->pluck('id');
         if (count($ids) > 0){
+
             $post_data=Download::with('category')
                 ->where('mould_id',\request('mid'))
                 ->whereIn('category_id',$ids)

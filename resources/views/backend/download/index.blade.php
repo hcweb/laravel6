@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-4">
                         <div class="text-right">
-                            <a href="" class="btn btn-secondary waves-effect waves-light btn-rounded"
+                            <a href="{{route($mould_name.'.create',['mid'=>request('mid'),'cid'=>request('cid')])}}" class="btn btn-secondary waves-effect waves-light btn-rounded"
                             ><i
                                     class="mdi mdi-plus-circle mr-1"></i> 添加文档</a>
                         </div>
@@ -57,6 +57,10 @@
                                            onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                            class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                                 class="fa fa-trash"></i> 删除</a>
+                                        <a href="javascript:;"
+                                           onclick="test()"
+                                           class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
+                                                class="fa fa-trash"></i> 删除</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -87,5 +91,9 @@
                 }
             });
         })
+
+        function test() {
+            parent.showTost();
+        }
     </script>
 @stop

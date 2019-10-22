@@ -14,7 +14,7 @@ class SellerController extends BaseController
     {
         $key = empty($request->input('key'))? '' :$request->input('key');
 //        echo $key;
-        $sellerList= Seller::orderBy('id','desc')->paginate(2);
+        $sellerList= Seller::orderBy('id','desc')->paginate(config('base_config.page_number'));
         if(!empty($key)){
             $sellerList= Seller::where('name','like',"%$key%")->orderBy('id','desc')->paginate(config('base_config.page_number'));
         }

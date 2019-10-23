@@ -29,11 +29,11 @@ class PostController extends BaseController
            $post_data=Post::with('category')
                ->where('mould_id',\request('mid'))
                ->whereIn('category_id',$ids)
-               ->get();
+               ->paginate(config('base_config.page_number'));
        }else{
         $post_data=Post::with('category')
             ->where(['mould_id'=>\request('mid'),'category_id'=>\request('cid')])
-            ->get();
+            ->paginate(config('base_config.page_number'));
        }
         return view('backend.post.index',compact('post_data','mould_name'));
     }

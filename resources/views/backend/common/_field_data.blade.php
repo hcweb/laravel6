@@ -176,7 +176,7 @@
 
 
             @case('float')
-            <div class="layui-input-inline">
+            <div class="col-sm-3">
                 {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的数值",'class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @if (!empty($f->byte))
@@ -186,7 +186,7 @@
 
 
             @case('decimal')
-            <div class="layui-input-inline">
+            <div class="col-sm-3">
                 {!! Form::input('text',$f->name,!empty($f_data[$f->name]) ? old($f->name) : $f->content,['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,"onkeyup"=>"value=value.replace(/[^0-9\.]/g,'')",'placeholder'=>"允许带有小数点的金额",'class'=>'form-control','id'=>$f->name.'_'.$f->id]) !!}
             </div>
             @if (!empty($f->byte))
@@ -196,11 +196,8 @@
 
 
             @case('color')
-            <div class="layui-input-inline" style="width: 120px;">
+            <div class="col-sm-3">
                 {!! Form::input('text',$f->name,old($f->name),['lay-verify'=>$f->validate,'data-is_empty'=>$f->is_empty,'class'=>'form-control','placeholder'=>'请选择颜色','id'=>$f->name.'_'.$f->id]) !!}
-            </div>
-            <div class="layui-inline" style="left: -11px;margin-bottom: 0">
-                <div id="{{$f->name.'_'.$f->id.'color'}}" data-id="{{$f->name.'_'.$f->id}}"></div>
             </div>
             @break
         @endswitch

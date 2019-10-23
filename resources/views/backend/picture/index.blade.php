@@ -57,6 +57,10 @@
                                onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                     class="fa fa-trash"></i> 删除</a>
+                            <a href="javascript:;"
+                               onclick="test()"
+                               class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
+                                    class="fa fa-trash"></i> 删除</a>
                         </td>
                     </tr>
                 @endforeach
@@ -65,6 +69,9 @@
             @endif
             </tbody>
         </table>
+        <div class="text-center">
+            {{ $post_data->appends(['mid' => request('mid'),'cid'=>request('cid')])->links() }}
+        </div>
     </div>
 
 @stop
@@ -84,5 +91,9 @@
                 }
             });
         })
+
+        function test() {
+            parent.showTost();
+        }
     </script>
 @stop

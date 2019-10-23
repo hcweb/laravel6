@@ -320,7 +320,7 @@
                 var index=parseInt(value);
                 if (index == 4 || index == 5){
                     $('#template_list').hide();
-                    $('#template_list').find('input').val('');
+                    $('#template_list').find('input').val('list_'+template+'.blade.php');
                     $('input[name=template_show]').val('view_'+template+'.blade.php');
                 }else{
                     $('#template_list').show();

@@ -40,7 +40,7 @@ class ContentController extends BaseController
                 //单页模型
                 elseif ($v->mould_id == self::SINGLE_MOULD){
                     if ($single=Single::where('category_id',$v->id)->first()){
-                        $v->iframe_url=route('single.edit',['id'=>$single->id,'cid'=>$v->id,'mid'=>$v->mould_id]);
+                        $v->iframe_url=url("admin/single/$single->id/edit?cid=$v->id&mid=$v->mould_id");
                     }else{
                         $v->iframe_url=route('single.create',['cid'=>$v->id,'mid'=>$v->mould_id]);
                     }

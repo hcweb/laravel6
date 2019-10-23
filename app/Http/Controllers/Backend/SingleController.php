@@ -36,7 +36,7 @@ class SingleController extends BaseController
         }
         $single=Single::create($request->except('file'));
         if ($single){
-            return redirect()->route('single.edit',['id'=>$single->id,'cid'=>$single->category_id,'mid'=>$single->mould_id])->with('successMsg', '单页创建成功!');
+            return redirect("admin/single/$single->id/edit?cid=$single->category_id&mid=$single->mould_id")->with('successMsg', '单页创建成功!');
         }
         return back()->withInput()->withErrors('单页创建失败!');
     }
@@ -71,7 +71,7 @@ class SingleController extends BaseController
         //dd($request->all());
         //$single=Single::create($request->except('file','singleId'));
         if ($single->update($request->except('file','singleId'))){
-            return redirect()->route('single.edit',['id'=>$single->id,'cid'=>$single->category_id,'mid'=>$single->mould_id])->with('successMsg', '单页更新成功!');
+            return redirect("admin/single/$single->id/edit?cid=$single->category_id&mid=$single->mould_id")->with('successMsg', '单页更新成功!');
         }
         return back()->withInput()->withErrors('单页更新失败!');
     }

@@ -146,18 +146,18 @@
         </li>
 
 
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                <i class="fe-settings noti-icon"></i>
-            </a>
-        </li>
+{{--        <li class="dropdown notification-list">--}}
+{{--            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">--}}
+{{--                <i class="fe-settings noti-icon"></i>--}}
+{{--            </a>--}}
+{{--        </li>--}}
 
 
     </ul>
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center">
+        <a href="{{route('home.index')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{asset('backend/assets/images/logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->

@@ -3,9 +3,6 @@
     <link rel="stylesheet" href="{{asset('backend/style/template.css')}}">
 @stop--}}
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="card-box">
                 <div class="row pb-3">
                     <div class="col-lg-8">
                         <form class="form-inline" id="search_form" method="get" action="">
@@ -50,8 +47,5 @@
                 <div class="pull-right">
                     {{$datas->render()}}
                 </div>
-            </div>
-        </div>
-    </div>
 @stop
 

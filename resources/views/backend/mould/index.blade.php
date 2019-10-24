@@ -52,10 +52,12 @@
                                         @endcan
 
                                             @can('mould_destroy')
+                                                @if($v->is_system != 1)
                                         <a href="javascript:;"
                                            onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
                                            class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                                 class="fa fa-trash"></i> 删除</a>
+                                                    @endif
                                                 @endcan
                                     </td>
                                 </tr>

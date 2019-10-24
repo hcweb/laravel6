@@ -91,10 +91,6 @@
                     layer.close(tips);
                 }
             });
-        })
-
-        function test() {
-            parent.showTost();
-        }
+        });
     </script>
 @stop

@@ -9,12 +9,12 @@ class Tag extends Model
     protected $table = 'tags';
     protected $fillable = ['name'];
     
-    public function dfgdfgdfgdf()
-{
-    return $this->belongsToMany(Dfgdfgdfgdf::class, 'model_tag');
-}public function download()
+    public function download()
 {
     return $this->belongsToMany(Download::class, 'model_tag');
+}public function fggfg()
+{
+    return $this->belongsToMany(Fggfg::class, 'model_tag');
 }public function guest_book()
 {
     return $this->belongsToMany(GuestBook::class, 'model_tag');

@@ -13,7 +13,7 @@
   'site_media_type' => 'swf|mpg|mp3|rm|rmvb|wmv|wma|wav|mid|mov|mp4|flv',
   'site_file_size' => '2M',
   'site_email_smtp' => 'srewrwerwer',
-  'site_file_path' => '/medkd_resource',
+  'site_file_path' => '/uploads',
   'login_bg' => '/medkd_resource/thumbs/201909//site_20190927164928.jpg',
   'site_user_name' => 'nan',
   'gfhgfhgfh' => '男',

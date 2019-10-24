@@ -129,7 +129,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Category;
 use App\Models\Field;
 use App\Models\Mould;
-use App\Models\$fileName;
+use App\Models\\$fileName;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -347,11 +347,19 @@ EOF;
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 class $mould_class_name extends Model
 {
+
+use Searchable;
     protected \$table='$mould->table_name';
     protected \$guarded = array();
     
+
+public function category(){
+        return \$this->belongsTo(Category::class);
+    }
 
     public function tags()
     {
@@ -379,6 +387,24 @@ class $mould_class_name extends Model
             }
         }
 
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleted(function (\$m_data){
+            //删除标签
+            \$m_data->tags()->detach();
+            //删除图片及文件
+            \$m_attributes=\$m_data->attributesToArray();
+            foreach (\$m_attributes as \$v){
+                if (!is_null(\$v) && Str::contains(\$v,config('system_config.site_file_path'))){
+                    foreach (explode(',',\$v) as \$c){
+                        \File::delete(public_path(\$c));
+                    }
+                }
+            }
+        });
     }
 }
 EOF;

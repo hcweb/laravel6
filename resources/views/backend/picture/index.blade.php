@@ -59,7 +59,7 @@
                                class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                     class="fa fa-edit"></i> 编辑</a>
                             <a href="javascript:;"
-                               onclick="parent.delete('{{url()->current()}}','{{$v->id}}')"
+                               onclick="parent.i_delete('{{url()->current()}}','{{$v->id}}')"
                                class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                     class="fa fa-trash"></i> 删除</a>
                         </td>
@@ -91,10 +91,6 @@
                     layer.close(tips);
                 }
             });
-        })
-
-        function test() {
-            parent.showTost();
-        }
+        });
     </script>
 @stop

@@ -56,33 +56,11 @@ $(document).ready(function () {
     @endforeach
     var errorBox = document.createElement("div");
     errorBox.innerHTML=errors;
-    swal({
-        icon: "error",
-        timer: '2000',
-        button:false,
-        content: errorBox
-    });
-    // $.toast({
-    // text: errors,
-    // position: 'top-center',
-    // loaderBg: '#ff6849',
-    // icon: 'error'
-    // });
+    parent.showTost('error',errorBox);
 @endif
 @if (session()->has('successMsg'))
     var msg = "{{session()->get('successMsg')}}";
-    swal({
-        text: msg,
-        icon: "success",
-        timer: '2000',
-        button:false
-    });
-    // $.toast({
-    // text: msg,
-    // position: 'top-center',
-    // loaderBg: '#1abc9c',
-    // icon: 'success'
-    // });
+    parent.showTost('success',msg);
 @endif
 });
 </script>

@@ -16,3 +16,5 @@
 .imgs_item_box{width: 100px;height: 110px;position: relative;margin-top: 15px;float: left;margin-right: 20px;border: 1px solid #eee;}
 .imgs_item_box img{width: 100%;height: 100%;}
 .imgs_item_box i{position: absolute;width: 18px;height: 18px;border-radius: 100px;background: #f9897d;right: -9px;top: -9px;border: 2px solid #ffffff;box-shadow: 0 0 5px rgba(0,0,0,0.4);cursor: pointer;color: #fff;line-height: 18px;text-align: center;font-size: 10px !important;}
+
+.layui-layer-tips{background: #ffffff;box-shadow: 5px 5px 15px rgba(0,0,0,.2);padding: 5px;border-radius: 6px;}

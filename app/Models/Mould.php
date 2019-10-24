@@ -13,4 +13,8 @@ class Mould extends Model
     public function fields(){
         return $this->hasMany(Field::class,'mould_id');
     }
+
+    public function categories(){
+        return $this->hasMany(Category::class,'mould_id');
+    }
 }

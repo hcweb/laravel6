@@ -1,9 +1,9 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
-class MTest extends Model
+class Dfgdfgdfgdf extends Model
 {
-    protected $table='m_test';
+    protected $table='dfgdfgdfgdf';
     protected $guarded = array();
     
 

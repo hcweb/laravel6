@@ -45,7 +45,12 @@
                 @foreach($post_data as $v)
                     <tr>
                         <td>{{$v->id}}</td>
-                        <td>{{$v->title}}</td>
+                        <td>
+                            @if(!is_null($v->thumb))
+                                <i class="fa fa-image img-tip" data-src="{{$v->thumb}}" style="color: #1abc9c;margin-right: 10px;"></i>
+                            @endif
+                            {{$v->title}}
+                        </td>
                         <td>{{$v->category->title}}</td>
                         <td>{{$v->views}}</td>
                         <td>{{$v->created_at}}</td>
@@ -54,11 +59,7 @@
                                class="btn btn-outline-info waves-effect waves-light btn-sm mr-1 btn-rounded"><i
                                     class="fa fa-edit"></i> 编辑</a>
                             <a href="javascript:;"
-                               onclick="app.delete('{{url()->current()}}','{{$v->id}}')"
-                               class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
-                                    class="fa fa-trash"></i> 删除</a>
-                            <a href="javascript:;"
-                               onclick="test()"
+                               onclick="parent.delete('{{url()->current()}}','{{$v->id}}')"
                                class="btn btn-outline-danger waves-effect waves-light btn-sm btn-rounded"><i
                                     class="fa fa-trash"></i> 删除</a>
                         </td>

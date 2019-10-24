@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Category;
 use App\Models\Field;
 use App\Models\Mould;
-use App\Models\Download;
+use App\Models$fileName;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Validator;
 
-class DownloadController extends BaseController
+class DfgdfgdfgdfController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -21,22 +21,21 @@ class DownloadController extends BaseController
      */
     public function index()
     {
-        $mould_id=\request()->get('mid');
+        $mould_id=request()->get('mid');
         $mould_name=$this->getMouldNameById($mould_id);
-        $subCate=Category::descendantsAndSelf(\request('cid'),['id']);
+        $subCate=Category::descendantsAndSelf(request('cid'),['id']);
         $ids=$subCate->pluck('id');
-        if (count($ids) > 0){
-
-            $post_data=Download::with('category')
-                ->where('mould_id',\request('mid'))
-                ->whereIn('category_id',$ids)
-                ->paginate(config('base_config.page_number'));
-        }else{
-            $post_data=Download::with('category')
-                ->where(['mould_id'=>\request('mid'),'category_id'=>\request('cid')])
-                ->paginate(config('base_config.page_number'));
-        }
-        return view('backend.download.index',compact('post_data','mould_name'));
+       if (count($ids) > 0){
+           $post_data=Dfgdfgdfgdf::with('category')
+               ->where('mould_id',request('mid'))
+               ->whereIn('category_id',$ids)
+               ->paginate(config('base_config.page_number'));
+       }else{
+        $post_data=Dfgdfgdfgdf::with('category')
+            ->where(['mould_id'=>request('mid'),'category_id'=>request('cid')])
+            ->paginate(config('base_config.page_number'));
+       }
+        return view('backend.dfgdfgdfgdf.index',compact('post_data','mould_name'));
     }
 
     /**
@@ -46,11 +45,11 @@ class DownloadController extends BaseController
      */
     public function create()
     {
-        $mould_id=\request()->get('mid');
+        $mould_id=request()->get('mid');
         $fields=$this->getFieldsByMouldId($mould_id);
         $tags=Tag::all();
         $mould_name=$this->getMouldNameById($mould_id);
-        return view('backend.download.create',compact('fields','tags','mould_name'));
+        return view('backend.dfgdfgdfgdf.create',compact('fields','tags','mould_name'));
     }
 
     /**
@@ -79,7 +78,7 @@ class DownloadController extends BaseController
             $validator = Validator::make($request->all(), $rules->all());
             if ($validator->fails()) {
                 return redirect()
-                    ->route('download.create',['mid'=>$request->get('mould_id'),'cid'=>$request->get('category_id')])
+                    ->route('dfgdfgdfgdf.create',['mid'=>$request->get('mould_id'),'cid'=>$request->get('category_id')])
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -90,14 +89,14 @@ class DownloadController extends BaseController
                 $request[$k]=implode(',',$request->get($k));
             }
         }
-        if ($download=Download::create($request->except(['file','tags']))) {
+        if ($Dfgdfgdfgdf=Dfgdfgdfgdf::create($request->except(['file','tags']))) {
             //保存标签
             if ($request->get('tags') != null){
-                $download->syncTags(explode(',',$request->get('tags')));
+                $Dfgdfgdfgdf->syncTags(explode(',',$request->get('tags')));
             }
 
 
-            return redirect()->route('download.index',['id'=>$download->id,'cid'=>$download->category_id,'mid'=>$download->mould_id])->with('successMsg', '文档创建成功!');
+            return redirect()->route('dfgdfgdfgdf.index',['id'=>$Dfgdfgdfgdf->id,'cid'=>$Dfgdfgdfgdf->category_id,'mid'=>$Dfgdfgdfgdf->mould_id])->with('successMsg', '文档创建成功!');
         }
         return back()->withInput()->withErrors('文档创建失败!');
     }
@@ -105,10 +104,10 @@ class DownloadController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Download $download
+     * @param  \App\Models\{Dfgdfgdfgdf}  $Dfgdfgdfgdf
      * @return \Illuminate\Http\Response
      */
-    public function show(Download $download)
+    public function show(Dfgdfgdfgdf $Dfgdfgdfgdf)
     {
         //
     }
@@ -119,12 +118,12 @@ class DownloadController extends BaseController
      */
     public function edit($id)
     {
-        $mould_id=\request()->get('mid');
+        $mould_id=request()->get('mid');
         $fields=$this->getFieldsByMouldId($mould_id);
         $tags=Tag::all();
         $mould_name=$this->getMouldNameById($mould_id);
-        $f_data=Download::findOrFail($id);
-        return view('backend.download.edit',compact('fields','tags','mould_name','f_data'));
+        $f_data=Dfgdfgdfgdf::findOrFail($id);
+        return view('backend.dfgdfgdfgdf.edit',compact('fields','tags','mould_name','f_data'));
     }
 
 
@@ -136,7 +135,7 @@ class DownloadController extends BaseController
     public function update(Request $request,$id)
     {
         //数据验证
-        $download=Download::findOrFail($id);
+        $Dfgdfgdfgdf=Dfgdfgdfgdf::findOrFail($id);
         $fields = getFieldsByModelId((int)$request->get('mould_id'));
         $hasValidate = array();
         foreach ($fields as $v) {
@@ -164,7 +163,7 @@ class DownloadController extends BaseController
             $validator = Validator::make($request->all(), $rules->all());
             if ($validator->fails()) {
                 return redirect()
-                    ->route('download.edit',['mid'=>$request->get('mould_id'),'cid'=>$request->get('category_id')])
+                    ->route('dfgdfgdfgdf.edit',['mid'=>$request->get('mould_id'),'cid'=>$request->get('category_id')])
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -175,14 +174,14 @@ class DownloadController extends BaseController
                 $request[$k]=implode(',',$request->get($k));
             }
         }
-        if ($download->update($request->except(['file','tags']))) {
+        if ($Dfgdfgdfgdf->update($request->except(['file','tags']))) {
             //保存标签
             if ($request->get('tags') != null){
-                $download->syncTags(explode(',',$request->get('tags')));
+                $Dfgdfgdfgdf->syncTags(explode(',',$request->get('tags')));
             }
 
 
-            return redirect()->route('download.index',['id'=>$download->id,'cid'=>$download->category_id,'mid'=>$download->mould_id])->with('successMsg', '文档更新成功!');
+            return redirect()->route('dfgdfgdfgdf.index',['id'=>$Dfgdfgdfgdf->id,'cid'=>$Dfgdfgdfgdf->category_id,'mid'=>$Dfgdfgdfgdf->mould_id])->with('successMsg', '文档更新成功!');
         }
         return back()->withInput()->withErrors('文档更新失败!');
     }
@@ -194,8 +193,7 @@ class DownloadController extends BaseController
      */
     public function destroy($id)
     {
-
-        if (Download::destroy(explode(',',$id))) {
+        if (Dfgdfgdfgdf::destroy(explode(',',$id))) {
             return $this->sendSuccess("文档删除成功!");
         }
         return $this->sendError("文档删除失败!");
@@ -207,7 +205,7 @@ class DownloadController extends BaseController
      * @return mixed
      */
     private function getFieldsByMouldId($mid){
-        return Field::where(['mould_id'=>$mid,'is_system'=>false])->get();
+        return Field::where(['mould_id'=>$mid,'is_system'=>false])->orderBy('order','DESC')->get();
     }
 
     //获取模型名称

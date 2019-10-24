@@ -21,8 +21,6 @@ class HomeController extends BaseController
 
 
     public function index(){
-
-
        // $file=public_path().'/site_20190613214848.mp4';
 
 

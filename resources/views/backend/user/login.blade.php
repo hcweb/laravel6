@@ -75,7 +75,7 @@
                         <div class="form-group mb-3">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="rember_me" class="custom-control-input"
-                                       id="checkbox-signin" checked>
+                                       id="checkbox-signin">
                                 <label class="custom-control-label" for="checkbox-signin">记住密码</label>
                             </div>
                         </div>
